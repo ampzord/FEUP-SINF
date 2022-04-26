@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/americanexpress"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/profile_icon"
+            android:title="Clientes" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/americanexpress"
+            android:title="Produtos" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/bgimg"
+            android:title="Visitas" />
+
+        <item
+            android:id="@+id/nav_manag33e"
+            android:icon="@drawable/bgimg"
+            android:title="Documentos" />
+</menu>

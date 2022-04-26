@@ -1,0 +1,854 @@
+{
+	"info": {
+		"_postman_id": "22600116-1644-4e5b-863c-558262626fed",
+		"name": "SINF",
+		"description": "Coleção para a WebAPI (em Express.js) para a disciplina de SINF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agenda",
+			"item": [
+				{
+					"name": "Agenda",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/agenda",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agenda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Visit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/agenda/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agenda",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Visit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_id\": \"C0005\",\n\t\"todo\": \"Mostrar novo produto X. Promover nova campanha na mangueira de lavagem\",\n\t\"visit_date\": \"10/10/2019\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/agenda",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agenda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Visit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"report\": \"Achou a campanha muito boa. Quer comprar o dobro do normal para compensar. Não tem interesse no novo produto (não se adequa à sua área)\",\n\t\"done\": true\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/agenda/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agenda",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/clients/C0001",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"C0001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client Quotations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/clients/C0005/quotations",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"C0005",
+								"quotations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/clients/C0005/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"C0005",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client Invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/clients/C0005/invoices",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"C0005",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/products/A0001",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"A0001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/products/A0001/sales",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"A0001",
+								"sales"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Quotations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/sales/quotations",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sales",
+								"quotations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/sales/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sales",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/sales/invoices",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sales",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Primavera",
+			"item": [
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/token",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\": \"SELECT * FROM Clientes\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/query",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clientes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_id\": \"C0005\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produtos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/produtos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product_id\": \"A0001\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/produtos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto Vendas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product_id\": \"A0001\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/produto_vendas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"produto_vendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orçamentos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/orcamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"orcamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encomendas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/encomendas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"encomendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Faturas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/faturas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"faturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orçamentos Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_id\": \"C0005\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/orcamentos_cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"orcamentos_cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encomendas Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_id\": \"C0005\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/encomendas_cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"encomendas_cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Faturas Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_id\": \"C0005\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/primavera/faturas_cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"primavera",
+								"faturas_cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Connection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"rfonseca\",\n\t\"password\": \"sinfefixe\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"SELECT * FROM Clientes\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/query",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Pipe Tube</string>
+    <string name="pipe_tube_title">Pipe Tube</string>
+    <string name="first_name">Username</string>
+    <string name="pass_name">Password</string>
+    <string name="pipe_tube_logo">Last Name</string>
+    <string name="confirm_registration">Login</string>
+
+
+    <!--Shared preferences-->
+    <string name="STORED_FILE">pt.up.fe.tiago.eventscan.storedfile</string>
+    <string name="UUID_TAG">UUID</string>
+    <string name="EXPONENT_TAG">EXPONENT</string>
+    <string name="MODULUS_TAG">MODULUS</string>
+    <string name="NAME_TAG">NAME</string>
+    <string name="vouchers">Vouchers</string>
+    <string name="qr_code_for_cafeteria">QR Code for cafeteria</string>
+    <string name="shopping_go_back">Shopping Go Back</string>
+    <string name="seat">Seat:</string>
+    <string name="voucher_icon">Voucher Icon</string>
+    <string name="select_a_voucher">Select a voucher</string>
+    <string name="simsmsim">simsmsim</string>
+    <string name="stdf">stdf</string>
+    <string name="okds">okds</string>
+</resources>
+

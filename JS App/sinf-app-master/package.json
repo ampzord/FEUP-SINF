@@ -1,0 +1,41 @@
+{
+  "name": "my-new-project",
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "expo": "^31.0.2",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "prop-types": "^15.6.2",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-action-button": "^2.8.5",
+    "react-native-dashboard": "0.0.2",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-drawer": "^2.5.1",
+    "react-native-elements": "^0.19.1",
+    "react-native-floating-action": "^1.13.0",
+    "react-native-google-static-map": "^0.1.13",
+    "react-native-open-maps": "^0.3.2",
+    "react-native-modal-datetime-picker": "^6.0.0",
+    "react-native-picker": "^4.3.7",
+    "react-native-picker-select": "^5.1.0",
+    "react-native-svg-charts": "^5.2.0",
+    "react-navigation": "^2.18.3"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0",
+    "jest-expo": "^31.0.0"
+  }
+}

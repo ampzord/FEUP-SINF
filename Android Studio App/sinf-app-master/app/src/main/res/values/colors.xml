@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF8E82</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#ff8e82</color>
+    <color name="matteRed">#FF8E82</color>
+    <color name="pipecolor">#DB3C2C</color>
+    <color name="darkGray">#07182D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="pearl">#EAE0CC</color>
+    <color name="yellow">#FFCD82</color>
+    <color name="mattedblue">#D7185674</color>
+    <color name="viewseparator">#cccccc</color>
+</resources>

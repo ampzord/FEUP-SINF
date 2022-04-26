@@ -1,0 +1,266 @@
+import React from 'react';
+import { StyleSheet,Alert,TouchableHighlight, Text,Button,TextInput,Image, View,ScrollView,ImageBackground,FloatingAction } from 'react-native';
+import ListItems from '../components/ListItems';
+import _ from 'lodash'
+import EncomendaForm from '../components/EncomendaForm'; 
+import Btn from '../components/Btn';
+import RNPickerSelect from 'react-native-picker-select';
+
+export default class EncomendaScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Encomenda',
+  };
+
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    favColor: undefined,
+    items: [
+        {
+            label: 'Ardion',
+            value: 'Ardion',
+        },
+        {
+            label: 'Intel',
+            value: 'Intel',
+        },
+        {
+            label: 'Company DHL',
+            value: 'Company',
+        },{
+            label: 'TubeCMP',
+            value: 'TubeCMP',
+        },
+    ],
+    rows: [],
+    encomenda: {
+      header: {},
+      rows: [ ]
+    }
+  };
+
+  // TODO
+  componentDidMount() {
+    const encomendaID = this.props.navigation.getParam('ID', undefined);
+    //Alert.alert(orcID)
+
+    fetch(global.serverUrl + '/sales/document/' + encomendaID, global.getOptions)
+    .then(response => response.json())
+    .then(encomenda => {
+      console.log(encomenda)
+      console.log(encomenda.header)
+      this.setState({
+        encomenda
+      })
+    })
+  }
+
+   transformInvoice() {
+    fetch(global.serverUrl + '/sales/orders/' + this.state.encomenda.header.Id, {
+      ...global.postOptions,
+      body: JSON.stringify({
+        document_number: this.state.encomenda.header.NumDoc,
+        client_id: this.state.encomenda.header.Cliente
+      })
+    })
+    .then(response => {
+      if (response.status === 200) {
+        Alert.alert('Encomenda foi transformada em fatura!')
+      } else {
+        Alert.alert('Este documento já foi transformado...')
+      }
+    })
+  }
+
+  render() {
+    return (
+      <View style={styles.container}> 
+        <ScrollView style={[styles.container, styles.mg_top]} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.paper}>
+
+          {/* ROW 1 */}
+          <View style={styles.rowA}> 
+
+            {/* left Side */}
+            <View style={styles.childrenA}>
+                <ImageBackground source={require('../assets/images/enc.png')} style={styles.bg}></ImageBackground>
+            </View>
+
+            {/* Right Side */}
+            <View style={styles.childrenB}>   
+              <View style={styles.text}>
+                <View style={{marginBottom: 6}}>
+                  <Text> Company:   </Text>
+                </View>
+                <View style={{marginBottom: 6}}>
+                  <Text style={{color: '#85adad'}}> {this.state.encomenda.header.Nome} </Text>
+                </View>
+                
+
+                <View style={{marginBottom: 0, marginTop: 8}}>
+                  <Text> Inicio:  {this.props.from} </Text>
+                  <Text style={{marginTop:6, color: '#85adad'}}> {this.state.encomenda.header.DataCriacao} </Text>
+                </View>
+                <View style={{marginTop:6}}>
+                  <Text> Fim: {this.props.to}</Text>
+                  <Text style={{marginTop:6, color: '#85adad'}}> {this.state.encomenda.header.DataCarga} </Text>
+                </View>     
+                            
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.textTitle} style={{marginTop:0}}>
+            <Text> Codigo: </Text>
+            <Text style={{marginTop:6, color: '#85adad'}}> #2018{this.state.encomenda.header.NumDoc} </Text>
+          </View>
+
+          <View style={{flexDirection: 'row'}}> 
+            <View style={styles.textTitle} style={{marginTop:12, marginBottom: 4, flex:0.5}}>
+              <Text> Equipamento: </Text>
+            </View>
+            <View style={styles.textTitle} style={{marginTop:12, marginBottom: 4, flex:0.5}}>
+              <Text> Quantidade: </Text>
+            </View>
+          </View>    
+
+          {/* Lista de equipamentos */}
+          <View style={styles.rawTubos} style={{flexDirection:'column', marginTop: 12, marginLeft:5}}  >
+            { this.state.encomenda.rows.map((item, key)=>(
+
+              <View key={key} style={{flexDirection: 'row', marginBottom: 10}}>
+                <View style={{flex:0.6}}>
+                  <Text style={{fontWeight: 'bold', color:'#339966', fontSize: 20}}>{item.Descricao}</Text>
+                </View>
+                <View style={{flex:0.3}}>
+                  <Text style={{fontWeight: 'bold', color:'#339966', fontSize: 20}}>{item.Quantidade}</Text>
+                </View>
+              </View>
+            )
+            )}
+            
+          </View>
+
+        {/* Preco Total */}
+          <View style={styles.textTitle} style={{marginTop: 8}}>
+            <Text> Preço Total: </Text>
+            <Text style={{marginTop:6, color: '#85adad'}}> {this.state.encomenda.header.TotalDocumento}€ </Text>
+          </View>
+
+          <TouchableHighlight 
+                  style ={{
+                      height: 40,
+                      width:160,
+                      borderRadius:10,
+                      backgroundColor : "#f2f2f2",
+                      marginLeft :2,
+                      marginRight:40,
+                      marginTop :20,
+                      marginBottom: 20,
+                  }}>
+              <Button onPress={this.transformInvoice.bind(this)}            
+              title="Faturar"
+              accessibilityLabel="Learn more about this button"
+            /> 
+            </TouchableHighlight> 
+
+      </View>
+
+      </ScrollView>
+          
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f2f2f2',
+    padding:10,
+    paddingBottom:0,
+  },
+  rawTubos: {
+    flexDirection: 'row',
+    flex:0.25
+  },
+  paper: { flex: 1, 
+    flexDirection: 'column', 
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding:16,
+  },
+  textTitle:{
+      marginBottom: 12, 
+      fontSize: 12
+    },
+
+  title: {
+    paddingBottom: 12,
+    paddingTop: 6,
+  },
+  text: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  rowA: {
+    margin: 6, 
+    textAlign: 'center',
+    padding:15,
+    flex: 0.4, 
+    flexDirection: 'row',
+    marginBottom: '0%'
+  },
+    childrenA: {
+    marginRight: 15,
+    marginBottom:20,
+    flex: 0.5,
+    flexDirection: 'column',
+    padding:2,
+  }, 
+  childrenB: {
+    fontSize: 143,
+    margin: 0,
+    flex: 1.5,
+    padding:0,
+    paddingLeft:25,
+  },
+
+  bg:{
+    flex: 0.8,
+    justifyContent: 'center',
+    resizeMode:'cover',
+    width: 75,
+    height:75,
+    marginTop: '24%',
+    marginLeft:'-20%',
+  },
+    childrenC: {
+    margin: 0,
+    flex: 0.3,
+    alignItems: 'center',
+  },
+  loginbtn:{
+    color: 'black',
+    alignSelf: 'stretch',
+    width: 20,
+    height:20,
+    fontWeight: 'bold',
+  }
+})
+
+const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+        fontSize: 16,
+        paddingTop: 13,
+        paddingHorizontal: 10,
+        paddingBottom: 12,
+        borderWidth: 1,
+        borderColor: 'gray',
+        borderRadius: 4,
+        backgroundColor: 'white',
+        color: 'black',
+    },
+});
